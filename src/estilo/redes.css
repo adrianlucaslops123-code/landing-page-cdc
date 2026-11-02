@@ -1,0 +1,65 @@
+/* ---------- redes sociais: ícones discretos no canto inferior esquerdo ---------- */
+.redes-canto {
+  position: fixed; z-index: 44; left: calc(20px + env(safe-area-inset-left, 0px)); bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  display: flex; gap: 8px;
+  opacity: 0; translate: 0 12px; pointer-events: none; transition: opacity 0.5s, translate 0.6s var(--entrada);
+}
+.is-rolou .redes-canto { opacity: 1; translate: 0 0; pointer-events: auto }
+html.portal-aberto .redes-canto { display: none }
+.redes-canto__link {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--vidro); box-shadow: inset 0 0 0 1px var(--fio-forte); color: var(--texto-2);
+  backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque);
+  transition: color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+.redes-canto__link svg, .redes-linha__link svg, .redes-popup__icone svg { width: 18px; height: 18px }
+:where(html:not(.toque)) .redes-canto__link:hover { color: var(--brasa); box-shadow: inset 0 0 0 1px rgba(251, 120, 30, 0.55) }
+@media (max-width: 760px) {
+  .redes-canto { left: calc(14px + env(safe-area-inset-left, 0px)); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); gap: 6px }
+  .redes-canto__link { width: 36px; height: 36px }
+}
+
+/* ---------- rodapé: linha institucional ---------- */
+.redes-linha { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 12px }
+.rodape__grade .redes-linha { grid-column: 3 }
+.redes-linha__link { display: inline-flex; align-items: center; gap: 8px; color: var(--texto-2); text-decoration: none; font-size: 14px }
+:where(html:not(.toque)) .redes-linha__link:hover { color: var(--brasa) }
+@media (max-width: 860px) { .rodape__grade .redes-linha { grid-column: auto; margin-top: 0 } }
+
+/* ---------- contato: botão que abre o pop-up ---------- */
+.redes-abrir { display: inline-block; margin-top: 12px; padding: 0; border: 0; background: none; cursor: pointer; font: 600 15px/1.4 var(--ui) }
+
+/* ---------- pop-up ---------- */
+.redes-popup {
+  width: min(380px, calc(100% - 32px)); padding: 0; border: 0; border-radius: var(--r-cartao);
+  background: var(--vidro-forte); color: var(--texto); box-shadow: inset 0 0 0 1px var(--fio-forte), 0 40px 90px -30px #000;
+  backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque);
+}
+.redes-popup::backdrop { background: rgba(7, 9, 12, 0.6); backdrop-filter: blur(4px) }
+.redes-popup[open] { animation: redes-entra 0.45s var(--entrada) }
+@keyframes redes-entra { from { opacity: 0; translate: 0 14px } }
+.redes-popup__caixa { padding: 22px }
+.redes-popup__topo { display: flex; align-items: center; justify-content: space-between; gap: 12px }
+.redes-popup__topo h3 { font: 720 var(--t-h3)/1.1 var(--display); font-stretch: 106% }
+.redes-popup__fechar {
+  width: 36px; height: 36px; border: 0; border-radius: 10px; cursor: pointer; font-size: 22px; line-height: 1;
+  background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px var(--fio); color: var(--texto);
+}
+.redes-popup__caixa > p { margin-top: 6px; color: var(--texto-2); font-size: 14px }
+.redes-popup ul { margin-top: 16px; display: grid; gap: 8px }
+.redes-popup__link {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px 14px 10px 10px;
+  border-radius: 12px; background: var(--aco-1); box-shadow: inset 0 0 0 1px var(--fio); text-decoration: none; transition: box-shadow 0.25s, background 0.25s;
+}
+.redes-popup__icone { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(251, 120, 30, 0.12); color: var(--brasa) }
+.redes-popup__texto { display: flex; flex-direction: column; min-width: 0 }
+.redes-popup__texto b { font-size: 15px }
+.redes-popup__texto small { font: 500 12px/1.3 var(--mono); color: var(--texto-2); overflow-wrap: anywhere }
+.redes-popup__seta { color: var(--brasa) }
+:where(html:not(.toque)) .redes-popup__link:hover { background: var(--aco-2); box-shadow: inset 0 0 0 1px rgba(251, 120, 30, 0.45) }
+@media (prefers-reduced-motion: reduce) { .redes-popup[open] { animation: none } .redes-canto { transition: none } }
+
+/* com o pop-up aberto (camada do topo), o cursor normal volta */
+html.redes-aberto .cursor { display: none }
+html.redes-aberto.tem-cursor, html.redes-aberto.tem-cursor * { cursor: auto !important }
+html.redes-aberto.tem-cursor .redes-popup a, html.redes-aberto.tem-cursor .redes-popup button { cursor: pointer !important }

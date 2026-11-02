@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./src/estilo/provas.css" />
     <link rel="stylesheet" href="./src/estilo/fim.css" />
     <link rel="stylesheet" href="./src/estilo/aluno.css" />
+    <link rel="stylesheet" href="./src/estilo/redes.css" />
     <style>
       html { background: #07090c; color-scheme: dark }
     </style>
@@ -661,6 +662,11 @@
                 <p class="canal__valor canal__valor--texto">Rua Jorge Rudge, 180<br />Maracanã · Rio de Janeiro (RJ)</p>
                 <p><a class="link-seta" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Jorge%20Rudge%2C%20180%2C%20Maracan%C3%A3%2C%20Rio%20de%20Janeiro%20-%20RJ" target="_blank" rel="noopener">Abrir no mapa ↗</a></p>
               </div>
+              <div class="canal" data-surgir>
+                <p class="canal__tipo">Redes sociais</p>
+                <p class="canal__valor canal__valor--texto">Instagram e Facebook oficiais</p>
+                <p><button class="link-seta redes-abrir" type="button" data-abrir-redes aria-haspopup="dialog">Redes sociais ↗</button></p>
+              </div>
             </div>
           </div>
         </div>
@@ -675,6 +681,7 @@
           <a href="#a-cdc">A CDC</a><a href="#treinamentos">Treinamentos</a><a href="#provas">Provas</a><a href="#estrutura">Estrutura</a><a href="#depoimentos">Depoimentos</a><a href="#area-do-aluno">Área do aluno</a><a href="#contato">Contato</a>
         </nav>
         <p class="rodape__contato">(21) 98257-0433 · (21) 98257-0418<br />Rua Jorge Rudge, 180 · Maracanã · Rio de Janeiro (RJ)</p>
+        <p class="redes-linha" data-redes-linha aria-label="Redes sociais da CDC"></p>
       </div>
       <p class="rodape__fim">© 2026 CDC Capacitação em Qualidade. Todos os direitos reservados.</p>
     </footer>
@@ -771,6 +778,16 @@
         </section>
       </div>
     </div>
+
+    <!-- redes sociais: ícones no canto e pop-up (links em src/redes.js) -->
+    <nav class="redes-canto" data-redes-canto aria-label="Redes sociais da CDC"></nav>
+    <dialog class="redes-popup" aria-labelledby="redes-titulo">
+      <div class="redes-popup__caixa">
+        <header class="redes-popup__topo"><h3 id="redes-titulo">Redes sociais</h3><button type="button" class="redes-popup__fechar" data-fechar-redes aria-label="Fechar">×</button></header>
+        <p>Acompanhe a CDC nos perfis oficiais.</p>
+        <ul data-redes-lista></ul>
+      </div>
+    </dialog>
 
     <div class="aviso" role="status" aria-live="polite"></div>
 
