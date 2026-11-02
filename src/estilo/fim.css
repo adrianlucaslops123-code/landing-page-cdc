@@ -1,0 +1,91 @@
+/* ---------- contato: o lema da CDC como fecho ---------- */
+.contato {
+  position: relative; overflow: clip; padding-block: clamp(110px, 18vh, 220px) clamp(80px, 12vh, 140px);
+  background:
+    radial-gradient(70vmax 40vmax at 50% 0%, rgba(251, 120, 30, 0.14), transparent 70%),
+    radial-gradient(60vmax 40vmax at 90% 100%, rgba(63, 114, 212, 0.1), transparent 70%),
+    var(--aco-0);
+}
+.contato__palco { position: absolute; inset: 0; pointer-events: none; opacity: 0.9 }
+.contato__palco canvas { display: block; width: 100%; height: 100% }
+.contato .secao__miolo { position: relative }
+.contato__titulo {
+  display: flex; flex-direction: column; align-items: flex-start;
+  /* o tamanho final é medido em JS para a linha mais larga caber exatamente */
+  font: 820 var(--fecho, min(7.6vw, 116px))/0.9 var(--display); font-stretch: 116%; letter-spacing: -0.035em; text-transform: uppercase;
+}
+.contato__linha { display: block; white-space: nowrap; max-width: 100% }
+.contato__linha--brasa {
+  background: linear-gradient(100deg, var(--brasa-escura), var(--brasa) 30%, var(--brasa-quente) 46%, #fff3d6 50%, var(--brasa-quente) 54%, var(--brasa) 70%, var(--ouro));
+  background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: fundir 7s linear infinite;
+}
+.contato__grade { margin-top: clamp(56px, 9vh, 110px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 64px); align-items: start }
+
+.inscricao {
+  display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  padding: clamp(24px, 3vw, 40px); border-radius: var(--r-cartao);
+  background: var(--vidro-forte); box-shadow: inset 0 0 0 1px var(--fio-forte), 0 40px 90px -50px #000;
+  backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque);
+}
+.inscricao h3 { font: 740 var(--t-h3)/1.1 var(--display); font-stretch: 108% }
+.inscricao > p:not(.inscricao__msg) { color: var(--texto-2); font-size: 15px; margin-bottom: 10px }
+.inscricao label { margin-top: 6px; font: 500 12px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto-2) }
+.inscricao label span { text-transform: none; letter-spacing: 0; color: var(--texto-3) }
+.inscricao input, .inscricao select, .inscricao textarea {
+  width: 100%; min-height: 50px; padding: 12px 14px; border: 0; border-radius: var(--r-botao);
+  background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px var(--fio-forte); color: var(--texto);
+  font: 400 16px/1.4 var(--ui); transition: box-shadow 0.25s, background 0.25s; appearance: none; -webkit-appearance: none;
+}
+.inscricao select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--texto-2) 50%), linear-gradient(135deg, var(--texto-2) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px;
+}
+.inscricao select option { background: var(--aco-1); color: var(--texto) }
+.inscricao textarea { resize: vertical; min-height: 90px }
+.inscricao input::placeholder, .inscricao textarea::placeholder { color: var(--texto-3) }
+.inscricao input:focus, .inscricao select:focus, .inscricao textarea:focus { outline: none; background: rgba(255, 255, 255, 0.07); box-shadow: inset 0 0 0 1px var(--arco), 0 0 0 4px rgba(168, 216, 255, 0.14) }
+.inscricao.is-erro input#nome { box-shadow: inset 0 0 0 1px var(--brasa), 0 0 0 4px rgba(251, 120, 30, 0.16) }
+.inscricao.is-erro { animation: treme 0.42s }
+@keyframes treme { 20%, 60% { translate: -7px 0 } 40%, 80% { translate: 7px 0 } }
+.inscricao__enviar { margin-top: 16px }
+.inscricao__msg { min-height: 1.4em; font-size: 14px; color: var(--brasa-quente) }
+
+.canais { display: grid; gap: 14px; min-width: 0 }
+.canal { padding: 22px 24px; border-radius: var(--r-cartao); background: var(--aco-1); box-shadow: inset 0 0 0 1px var(--fio); min-width: 0 }
+.canal__tipo { font: 500 var(--t-mono)/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--texto-2); margin-bottom: 12px }
+.canal__valor { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font: 650 clamp(18px, 1.6vw, 24px)/1.3 var(--display); font-stretch: 104%; overflow-wrap: anywhere }
+.canal__valor + .canal__valor { margin-top: 8px }
+.canal__valor a { text-decoration: none }
+:where(html:not(.toque)) .canal__valor a:hover { color: var(--brasa) }
+.canal__valor--texto { font-weight: 560 }
+.canal__obs { margin-top: 4px; font-size: 13px; color: var(--brasa-quente) }
+.canal .link-seta { display: inline-block; margin-top: 12px; font-size: 15px }
+.copiar {
+  min-height: 32px; padding: 0 10px; border: 0; border-radius: 8px; cursor: pointer;
+  background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px var(--fio-forte);
+  font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--texto-2); transition: background 0.2s, color 0.2s;
+}
+:where(html:not(.toque)) .copiar:hover { background: var(--brasa); color: var(--brasa-texto) }
+.copiar.is-feito { background: rgba(168, 216, 255, 0.16); color: var(--arco) }
+@media (max-width: 900px) { .contato__grade { grid-template-columns: 1fr } }
+
+/* ---------- rodapé ---------- */
+.rodape {
+  position: relative; padding: clamp(56px, 9vh, 96px) max(var(--gutter), env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px));
+  background: #050608; border-top: 1px solid var(--fio);
+}
+.rodape__marca { width: min(100%, 1240px); margin: 0 auto }
+.rodape__marca .logo { width: min(64vw, 620px) }
+.rodape__grade {
+  width: min(100%, 1240px); margin: clamp(40px, 6vh, 64px) auto 0; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 28px;
+  font-size: 15px; color: var(--texto-2);
+}
+.rodape__nome { color: var(--texto); font-weight: 600 }
+.rodape__nome span { font-weight: 400; color: var(--texto-2) }
+.rodape__links { display: flex; flex-wrap: wrap; gap: 10px 22px; align-content: start }
+.rodape__links a { text-decoration: none }
+:where(html:not(.toque)) .rodape__links a:hover { color: var(--brasa) }
+.rodape__fim { width: min(100%, 1240px); margin: 48px auto 0; padding-top: 20px; border-top: 1px solid var(--fio); font: 500 12px/1.5 var(--mono); color: var(--texto-3) }
+@media (max-width: 860px) { .rodape__grade { grid-template-columns: 1fr } }
+@media (prefers-reduced-motion: reduce) { .contato__linha--brasa { animation: none } }

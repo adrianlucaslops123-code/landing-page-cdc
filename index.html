@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>CDC Capacitação em Qualidade</title>
+    <meta name="description" content="Treinamento para Inspetor de Soldagem Nível 1 no Rio de Janeiro. Preparação para as provas de qualificação e recertificação da FBTS, desde 2005, a um quarteirão do SENAI de solda no Maracanã." />
+    <meta name="theme-color" content="#07090c" />
+    <meta property="og:title" content="CDC Capacitação em Qualidade" />
+    <meta property="og:description" content="Treinamento para Inspetor de Soldagem Nível 1. Desde 2005 no Maracanã, Rio de Janeiro." />
+    <meta property="og:image" content="./og.jpg" />
+    <link rel="icon" href="./marca/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./marca/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" />
+    <link rel="stylesheet" href="./src/estilo/tokens.css" />
+    <link rel="stylesheet" href="./src/estilo/base.css" />
+    <link rel="stylesheet" href="./src/estilo/topo.css" />
+    <link rel="stylesheet" href="./src/estilo/secoes.css" />
+    <link rel="stylesheet" href="./src/estilo/provas.css" />
+    <link rel="stylesheet" href="./src/estilo/fim.css" />
+    <link rel="stylesheet" href="./src/estilo/aluno.css" />
+    <style>
+      html { background: #07090c; color-scheme: dark }
+    </style>
+    <script>
+      document.documentElement.classList.add('js')
+      if (matchMedia('(hover: none)').matches) document.documentElement.classList.add('toque')
+    </script>
+  </head>
+  <body>
+    <a class="pular" href="#treinamentos">Pular para os treinamentos</a>
+
+    <!-- Abertura: o logo enche de metal fundido enquanto a página carrega -->
+    <div class="carga" aria-hidden="true">
+      <div class="carga__marca"><i class="carga__fundido"></i></div>
+      <p class="carga__info"><span>CDC · Capacitação em Qualidade</span><span class="carga__num">000</span></p>
+    </div>
+
+    <!-- Grão de filme e cursor -->
+    <div class="grao" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><i class="cursor__ponto"></i><i class="cursor__anel"><span class="cursor__rotulo"></span></i></div>
+
+    <!-- Progresso: um cordão de solda que desce com a rolagem -->
+    <div class="cordao" aria-hidden="true">
+      <div class="cordao__trilho"><i class="cordao__solda"></i><i class="cordao__ponta"></i></div>
+      <span class="cordao__num">00</span>
+    </div>
+
+    <header class="nav">
+      <a class="nav__marca" href="#inicio" aria-label="CDC, voltar ao início"><i class="logo"></i></a>
+      <nav class="nav__links" aria-label="Seções">
+        <a href="#a-cdc">A CDC</a>
+        <a href="#treinamentos">Treinamentos</a>
+        <a href="#provas">Provas</a>
+        <a href="#estrutura">Estrutura</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="nav__acoes">
+        <button class="som" type="button" aria-pressed="false" aria-label="Ligar o som da página" data-cursor="Som">
+          <i></i><i></i><i></i><i></i>
+        </button>
+        <a class="botao botao--vidro nav__aluno" href="#area-do-aluno">Área do aluno</a>
+        <a class="botao botao--brasa nav__cta" href="#treinamentos" data-magnetico>Inscreva-se</a>
+        <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i></i><i></i></button>
+      </div>
+    </header>
+
+    <div class="menu" id="menu" hidden>
+      <nav aria-label="Menu">
+        <a href="#a-cdc"><span>01</span>A CDC</a>
+        <a href="#treinamentos"><span>02</span>Treinamentos</a>
+        <a href="#provas"><span>03</span>Provas</a>
+        <a href="#estrutura"><span>04</span>Estrutura</a>
+        <a href="#depoimentos"><span>05</span>Depoimentos</a>
+        <a href="#area-do-aluno"><span>06</span>Área do aluno</a>
+        <a href="#contato"><span>07</span>Contato</a>
+      </nav>
+      <p class="menu__pe"><a href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Vim%20pelo%20site%20da%20CDC." target="_blank" rel="noopener">WhatsApp (21) 98257-0418</a></p>
+    </div>
+
+    <main>
+      <!-- 01 · HERO: o logo da CDC feito de partículas de metal -->
+      <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+        <div class="hero__palco" aria-hidden="true"></div>
+        <div class="hero__flash" aria-hidden="true"></div>
+        <p class="hero__lema" aria-hidden="true">Capacitação em qualidade</p>
+
+        <div class="hero__conteudo">
+          <p class="selo"><i></i>Inspetor de Soldagem N1 · FBTS</p>
+          <h1 class="hero__titulo" id="hero-titulo" data-titulo>Treinamento para Inspetor de Soldagem Nível 1</h1>
+          <p class="hero__texto" data-surgir>Preparação para as provas de qualificação e recertificação, com instrutores certificados pela FBTS e pelo SENAI, material similar ao da prova e um centro de treinamento a um quarteirão do SENAI de solda, no Maracanã.</p>
+          <div class="hero__acoes" data-surgir>
+            <a class="botao botao--brasa botao--grande" href="#treinamentos" data-magnetico>Ver treinamentos e valores</a>
+            <a class="botao botao--vidro botao--grande" href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Quero%20agendar%20meu%20treinamento%20na%20CDC." target="_blank" rel="noopener" data-magnetico><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.5c0 3.4 2.6 6.5 6.4 6.5l.9-1.6-2-1-1 .9a4 4 0 0 1-2.2-2.2l.9-1-1-2Z" fill="currentColor"/></svg>Agendar com a Rose</a>
+          </div>
+        </div>
+
+        <p class="hero__dica" aria-hidden="true"><span class="dica--mouse">Passe o mouse para aquecer o metal · clique para abrir o arco</span><span class="dica--toque">Toque no logo para abrir o arco</span></p>
+        <p class="hero__rolar" aria-hidden="true"><span>Role</span><i></i></p>
+      </section>
+
+      <!-- 02 · A CDC -->
+      <section class="secao manifesto" id="a-cdc" aria-labelledby="manifesto-titulo">
+        <div class="secao__miolo">
+          <p class="rotulo" data-surgir><span>01</span>A CDC</p>
+          <h2 class="sr" id="manifesto-titulo">Sobre a CDC</h2>
+          <p class="manifesto__texto" data-destaque>Desde 2005, a CDC prepara inspetores de soldagem para as provas de qualificação. Nossos instrutores já fizeram essas provas, o material é similar ao que você vai encontrar no dia e o método trabalha os pontos que mais levam à reprovação.</p>
+
+          <dl class="numeros">
+            <div class="numero" data-surgir>
+              <dt>Ano em que a CDC começou a preparar inspetores</dt>
+              <dd><span data-contar="2005" data-de="1990">2005</span></dd>
+            </div>
+            <div class="numero" data-surgir>
+              <dt>De aprovação na prova de acompanhamento de soldagem</dt>
+              <dd><span data-contar="95">95</span><small>%</small></dd>
+            </div>
+            <div class="numero" data-surgir>
+              <dt>De aprovação na prova de estufas e consumíveis</dt>
+              <dd><span data-contar="99">99</span><small>%</small></dd>
+            </div>
+            <div class="numero" data-surgir>
+              <dt>Do centro de treinamento até a FBTS</dt>
+              <dd><span data-contar="10">10</span><small>min</small></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- 03 · EQUIPE -->
+      <section class="secao equipe" id="equipe" aria-labelledby="equipe-titulo">
+        <div class="secao__miolo">
+          <p class="rotulo" data-surgir><span>02</span>Nossa equipe</p>
+          <h2 class="titulo" id="equipe-titulo" data-titulo>Quem treina você já passou pelas mesmas provas.</h2>
+
+          <div class="credenciais">
+            <article class="credencial" data-inclinar data-surgir>
+              <header class="credencial__topo"><span>Instrutor</span><span class="credencial__chip" aria-hidden="true"></span></header>
+              <h3>Deiwson Ribeiro</h3>
+              <p>Responsável pelo treinamento teórico. Criou o passo a passo de acompanhamento de soldagem usado na CDC.</p>
+              <ul class="credencial__registros">
+                <li><b>IS 1429 N1</b><span>FBTS</span></li>
+                <li><b>IS 1423 N1</b><span>SENAI</span></li>
+              </ul>
+            </article>
+            <article class="credencial" data-inclinar data-surgir>
+              <header class="credencial__topo"><span>Instrutora</span><span class="credencial__chip" aria-hidden="true"></span></header>
+              <h3>Rozilene Ribeiro <span class="credencial__apelido">(Rose)</span></h3>
+              <p>Inspetora de Soldagem Nível 1, certificada pela FBTS e pelo SENAI. É com ela que você agenda o seu treinamento.</p>
+              <ul class="credencial__registros">
+                <li><b>IS 8176 N1</b><span>FBTS</span></li>
+                <li><b>IS 1426 N1</b><span>SENAI</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 · TREINAMENTOS E VALORES -->
+      <section class="secao treinamentos" id="treinamentos" aria-labelledby="treinamentos-titulo">
+        <div class="secao__miolo">
+          <p class="rotulo" data-surgir><span>03</span>Treinamentos e valores</p>
+          <h2 class="titulo" id="treinamentos-titulo" data-titulo>Escolha como você quer se preparar.</h2>
+          <p class="secao__intro" data-surgir>O agendamento é feito com a Rose, de acordo com a disponibilidade do calendário e a agenda dos instrutores.</p>
+
+          <div class="planos">
+            <article class="plano plano--destaque" data-inclinar data-surgir>
+              <p class="plano__tag">Semipresencial</p>
+              <h3>Curso Inspetor de Soldagem Nível 1</h3>
+              <p class="plano__det">Aulas gravadas, on-line e presenciais. Acesso válido por 6 meses.</p>
+              <p class="plano__preco"><small>R$</small>2.200</p>
+              <p class="plano__pagto">À vista ou parcelado no cartão de crédito</p>
+              <ul class="plano__lista">
+                <li>Professores certificados pela FBTS e pelo SENAI</li>
+                <li>Salas de aula confortáveis e ambientadas para as aulas práticas</li>
+                <li>Material didático similar ao utilizado na prova</li>
+                <li>Instrumentos e equipamentos similares aos utilizados na prova</li>
+                <li>Ambiente calmo e tranquilo, próximo ao local da prova</li>
+              </ul>
+              <div class="plano__acoes">
+                <a class="botao botao--brasa" href="https://pay.kiwify.com.br/b2fQ0VB" target="_blank" rel="noopener" data-magnetico>Comprar o curso</a>
+                <a class="botao botao--vidro" href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20Curso%20Inspetor%20de%20Soldagem%20N%C3%ADvel%201." target="_blank" rel="noopener">Tirar dúvidas</a>
+              </div>
+            </article>
+
+            <article class="plano" data-inclinar data-surgir>
+              <p class="plano__tag">8 h por dia com instrutor</p>
+              <h3>Treinamento para Qualificação de Inspetor de Soldagem</h3>
+              <ul class="plano__precos">
+                <li><span>Documentos técnicos + tratamento térmico</span><b>R$ 800</b><em>2 dias</em></li>
+                <li><span>Dureza, inspeção de eletrodo, estufa, acompanhamento de soldagem e inspeção visual</span><b>R$ 500</b><em>por diária de retreinamento · sugerimos 4 dias</em></li>
+              </ul>
+              <div class="plano__acoes">
+                <a class="botao botao--brasa" href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Quero%20agendar%20o%20Treinamento%20para%20Qualifica%C3%A7%C3%A3o%20de%20Inspetor%20de%20Soldagem." target="_blank" rel="noopener" data-magnetico>Agendar com a Rose</a>
+              </div>
+            </article>
+
+            <article class="plano" data-inclinar data-surgir>
+              <p class="plano__tag">Nova formatação</p>
+              <h3>Treinamento para Recertificação Nível 1</h3>
+              <p class="plano__det">Disciplinas: visual de ajuste de junta, inspeção durante a soldagem e visual final de solda.</p>
+              <ul class="plano__precos">
+                <li><span>Recertificação</span><b>R$ 1.000</b><em>2 dias</em></li>
+                <li><span>Recertificação</span><b>R$ 1.500</b><em>3 dias</em></li>
+              </ul>
+              <div class="plano__acoes">
+                <a class="botao botao--brasa" href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Quero%20agendar%20o%20Treinamento%20para%20Recertifica%C3%A7%C3%A3o%20N%C3%ADvel%201." target="_blank" rel="noopener" data-magnetico>Agendar com a Rose</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 · PROVA POR PROVA (cena presa: um módulo por passo de rolagem) -->
+      <section class="provas" id="provas" aria-labelledby="provas-titulo">
+        <div class="provas__palco">
+          <div class="provas__cabeca">
+            <p class="rotulo"><span>04</span>Prova por prova</p>
+            <h2 class="titulo titulo--menor" id="provas-titulo" data-titulo>Cada prova tem um método.</h2>
+            <ol class="provas__indice" aria-hidden="true">
+              <li>Teórica</li><li>Documentos técnicos</li><li>Tratamento térmico</li><li>Acompanhamento de soldagem</li><li>Visual e dimensional</li><li>Dureza</li><li>Estufas e consumíveis</li><li>Recertificação</li>
+            </ol>
+            <p class="provas__contador" aria-hidden="true"><b>01</b> / 08</p>
+          </div>
+
+          <div class="provas__lista">
+            <article class="prova" data-prova="teorica">
+              <div class="prova__texto">
+                <p class="prova__num">01</p>
+                <h3>Teórica</h3>
+                <p>O professor Deiwson Ribeiro, responsável pelo treinamento teórico, trabalha com você os capítulos em que você tem mais dificuldade. Treinamento teórico não é só resolver questões: é mostrar como raciocinar para resolver as questões da prova, explicando o conteúdo.</p>
+                <p class="prova__nota">Banco de questões por dois meses, num sistema parecido com o da prova. Para liberar login e senha e ver os valores, <a href="#contato">fale com a gente</a>.</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--teorica">
+                  <rect class="ilus__papel" x="96" y="26" width="288" height="268" rx="10"/>
+                  <g class="ilus__linhas">
+                    <g transform="translate(130 64)"><text x="0" y="5">1</text><circle cx="40" cy="0" r="9"/><circle cx="80" cy="0" r="9"/><circle cx="120" cy="0" r="9"/><circle cx="160" cy="0" r="9"/><circle cx="200" cy="0" r="9"/></g>
+                    <g transform="translate(130 108)"><text x="0" y="5">2</text><circle cx="40" cy="0" r="9"/><circle cx="80" cy="0" r="9"/><circle cx="120" cy="0" r="9"/><circle cx="160" cy="0" r="9"/><circle cx="200" cy="0" r="9"/></g>
+                    <g transform="translate(130 152)"><text x="0" y="5">3</text><circle cx="40" cy="0" r="9"/><circle cx="80" cy="0" r="9"/><circle cx="120" cy="0" r="9"/><circle cx="160" cy="0" r="9"/><circle cx="200" cy="0" r="9"/></g>
+                    <g transform="translate(130 196)"><text x="0" y="5">4</text><circle cx="40" cy="0" r="9"/><circle cx="80" cy="0" r="9"/><circle cx="120" cy="0" r="9"/><circle cx="160" cy="0" r="9"/><circle cx="200" cy="0" r="9"/></g>
+                    <g transform="translate(130 240)"><text x="0" y="5">5</text><circle cx="40" cy="0" r="9"/><circle cx="80" cy="0" r="9"/><circle cx="120" cy="0" r="9"/><circle cx="160" cy="0" r="9"/><circle cx="200" cy="0" r="9"/></g>
+                  </g>
+                  <g class="ilus__marcas">
+                    <circle cx="210" cy="64" r="6"/><circle cx="170" cy="108" r="6"/><circle cx="330" cy="152" r="6"/><circle cx="250" cy="196" r="6"/><circle cx="290" cy="240" r="6"/>
+                  </g>
+                </svg>
+                <figcaption>Simulados no nível da prova</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="documentos">
+              <div class="prova__texto">
+                <p class="prova__num">02</p>
+                <h3>Documentos técnicos</h3>
+                <p>A prova tem dois exercícios: um para verificar o desempenho dos soldadores e outro para verificar a qualificação. Elaboramos um método que trabalha os pontos que mais levam à reprovação, por isso nossos alunos têm facilidade nessa prova.</p>
+                <p class="prova__nota">Já existe CEQUAL aplicando esta prova no computador, como a prova teórica. Fique atento.</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--documentos">
+                  <path class="ilus__chapa" d="M60 250 L230 250 L250 196 L60 196 Z M420 250 L250 250 L230 196 L420 196 Z"/>
+                  <path class="ilus__traco" d="M241 196 L330 96 L436 96"/>
+                  <path class="ilus__traco" d="M241 196 l7 -22 m-7 22 l20 -10"/>
+                  <path class="ilus__traco ilus__traco--forte" d="M360 96 L360 66 L392 96 Z"/>
+                  <path class="ilus__traco" d="M436 96 l18 -16 m-18 16 l18 16"/>
+                  <text class="ilus__cota" x="338" y="84">6</text>
+                  <text class="ilus__cota" x="456" y="100">EPS</text>
+                  <text class="ilus__leg" x="60" y="282">Símbolo de soldagem · exemplo</text>
+                </svg>
+                <figcaption>Leitura de documentos e símbolos</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="termico">
+              <div class="prova__texto">
+                <p class="prova__num">03</p>
+                <h3>Tratamento térmico</h3>
+                <p>A CDC criou um método de ensino que facilita o aprendizado e aumenta a sua velocidade na análise dos gráficos de tratamento térmico, porque o tempo de execução da prova é um dos fatores que podem atrapalhar a aprovação.</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--termico">
+                  <g class="ilus__grade"><path d="M70 40 V260 H450"/><path d="M70 205 H450 M70 150 H450 M70 95 H450" class="ilus__grade-fina"/></g>
+                  <text class="ilus__leg" x="70" y="30">°C</text>
+                  <text class="ilus__leg" x="420" y="282">tempo</text>
+                  <path class="ilus__curva" d="M70 250 L120 205 L230 95 L330 95 L410 190 L450 238"/>
+                  <circle class="ilus__ponto" cx="70" cy="250" r="7"/>
+                  <text class="ilus__leitura" x="0" y="0">25 °C</text>
+                  <text class="ilus__leg" x="150" y="140" transform="rotate(-45 150 140)">aquecimento</text>
+                  <text class="ilus__leg" x="250" y="84">patamar</text>
+                  <text class="ilus__leg" x="356" y="118" transform="rotate(50 356 118)">resfriamento</text>
+                  <text class="ilus__leg" x="300" y="300">Gráfico de exemplo</text>
+                </svg>
+                <figcaption>Análise rápida dos gráficos</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="acompanhamento">
+              <div class="prova__texto">
+                <p class="prova__num">04</p>
+                <h3>Acompanhamento de soldagem</h3>
+                <p>O Deiwson desenvolveu um passo a passo que facilita a memorização de todos os itens que devem ser verificados antes, durante e depois da soldagem. Nosso procedimento é semelhante ao do CEQUAL, o que dá ao aluno tranquilidade na hora da prova.</p>
+                <p class="prova__dado"><b>95%</b> de aprovação nesta prova</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--acompanhamento">
+                  <g transform="translate(40 50)">
+                    <text class="ilus__col">Antes</text>
+                    <g class="ilus__item" transform="translate(0 30)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="86" height="8" rx="4"/></g>
+                    <g class="ilus__item" transform="translate(0 72)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="70" height="8" rx="4"/></g>
+                    <g class="ilus__item" transform="translate(0 114)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="92" height="8" rx="4"/></g>
+                  </g>
+                  <g transform="translate(180 50)">
+                    <text class="ilus__col">Durante</text>
+                    <g class="ilus__item" transform="translate(0 30)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="80" height="8" rx="4"/></g>
+                    <g class="ilus__item" transform="translate(0 72)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="94" height="8" rx="4"/></g>
+                    <g class="ilus__item" transform="translate(0 114)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="64" height="8" rx="4"/></g>
+                  </g>
+                  <g transform="translate(320 50)">
+                    <text class="ilus__col">Depois</text>
+                    <g class="ilus__item" transform="translate(0 30)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="84" height="8" rx="4"/></g>
+                    <g class="ilus__item" transform="translate(0 72)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="72" height="8" rx="4"/></g>
+                    <g class="ilus__item" transform="translate(0 114)"><rect width="22" height="22" rx="5"/><path d="M5 11 l5 5 l8 -10"/><rect class="ilus__barra" x="32" y="7" width="90" height="8" rx="4"/></g>
+                  </g>
+                  <path class="ilus__fio" d="M40 250 H440"/>
+                  <circle class="ilus__ponto" cx="40" cy="250" r="7"/>
+                </svg>
+                <figcaption>Antes, durante e depois da soldagem</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="visual">
+              <div class="prova__texto">
+                <p class="prova__num">05</p>
+                <h3>Visual e dimensional</h3>
+                <p>Trabalhamos junto com o aluno para que ele identifique, localize, avalie e não confunda as descontinuidades. A prova deixa de ser subjetiva, como muita gente pensa, e ganha conceitos a serem assimilados.</p>
+                <p class="prova__nota">Temos uma grande quantidade de corpos de prova com descontinuidades similares às da prova. Média de aprovação igual à do acompanhamento de soldagem.</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--visual">
+                  <defs>
+                    <pattern id="escamas" width="18" height="40" patternUnits="userSpaceOnUse"><path d="M0 40 Q9 -6 18 40" class="ilus__escama"/></pattern>
+                    <clipPath id="lente-clip"><circle class="ilus__lente-clip" cx="120" cy="160" r="62"/></clipPath>
+                  </defs>
+                  <rect class="ilus__chapa" x="30" y="90" width="420" height="140" rx="6"/>
+                  <rect class="ilus__cordao" x="30" y="136" width="420" height="48" rx="20"/>
+                  <rect x="30" y="136" width="420" height="48" rx="20" fill="url(#escamas)" opacity=".55"/>
+                  <g clip-path="url(#lente-clip)" class="ilus__zoom">
+                    <rect class="ilus__cordao ilus__cordao--zoom" x="30" y="136" width="420" height="48" rx="20"/>
+                    <circle class="ilus__poro" cx="168" cy="158" r="4"/><circle class="ilus__poro" cx="176" cy="166" r="2.5"/>
+                    <path class="ilus__mordedura" d="M300 136 q14 8 28 0"/>
+                  </g>
+                  <circle class="ilus__lente" cx="120" cy="160" r="62"/>
+                  <path class="ilus__cabo" d="M164 204 L210 250"/>
+                  <text class="ilus__leg ilus__rotulo-a" x="150" y="122">porosidade</text>
+                  <text class="ilus__leg ilus__rotulo-b" x="290" y="122">mordedura</text>
+                </svg>
+                <figcaption>Identificar, localizar, avaliar</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="dureza">
+              <div class="prova__texto">
+                <p class="prova__num">06</p>
+                <h3>Dureza</h3>
+                <p>A prova tem duas partes. Na primeira, você lê as impressões já existentes num corpo de prova, numa situação criada na CDC semelhante à da prova. Na segunda, prepara a superfície e executa duas batidas; se uma delas ovalizar, tem direito a uma terceira.</p>
+                <p class="prova__nota">Acompanhamos como você executa as batidas e ensinamos a técnica para chegar a 100% sem ovalização.</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--dureza">
+                  <rect class="ilus__chapa" x="40" y="70" width="400" height="180" rx="8"/>
+                  <g class="ilus__batida" transform="translate(130 160)"><circle r="30"/><path d="M-30 0 H30 M0 -30 V30" class="ilus__medida"/></g>
+                  <g class="ilus__batida ilus__batida--oval" transform="translate(240 160)"><ellipse rx="38" ry="24"/><path d="M-22 -22 L22 22 M22 -22 L-22 22" class="ilus__x"/></g>
+                  <g class="ilus__batida" transform="translate(350 160)"><circle r="30"/><path d="M-30 0 H30 M0 -30 V30" class="ilus__medida"/></g>
+                  <text class="ilus__leg" x="104" y="226">1ª batida</text>
+                  <text class="ilus__leg" x="208" y="226">ovalizou</text>
+                  <text class="ilus__leg" x="320" y="226">3ª batida</text>
+                </svg>
+                <figcaption>Batidas sem ovalização</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="estufas">
+              <div class="prova__texto">
+                <p class="prova__num">07</p>
+                <h3>Estufas e consumíveis</h3>
+                <p>Assim como nas outras provas, desenvolvemos meios para você assimilar quais são as irregularidades dos consumíveis e como detectá-las. Na prova de estufas e consumíveis, oferecemos ambiente, material, instrumentos e equipamentos semelhantes aos da prova.</p>
+                <p class="prova__dado"><b>99%</b> de aprovação nesta prova</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--estufas">
+                  <rect class="ilus__estufa" x="120" y="34" width="240" height="250" rx="12"/>
+                  <rect class="ilus__porta" x="140" y="56" width="200" height="150" rx="6"/>
+                  <g class="ilus__eletrodos"><path d="M168 186 V90"/><path d="M190 186 V82"/><path d="M212 186 V94"/><path d="M234 186 V86"/><path d="M256 186 V92"/><path d="M278 186 V84"/><path d="M300 186 V90"/></g>
+                  <rect class="ilus__brilho" x="140" y="56" width="200" height="150" rx="6"/>
+                  <circle class="ilus__dial" cx="190" cy="246" r="18"/><path class="ilus__ponteiro" d="M190 246 L190 232"/>
+                  <rect class="ilus__termo" x="260" y="232" width="70" height="10" rx="5"/>
+                  <rect class="ilus__termo-cheio" x="260" y="232" width="70" height="10" rx="5"/>
+                </svg>
+                <figcaption>Estufas como as da prova</figcaption>
+              </figure>
+            </article>
+
+            <article class="prova" data-prova="recertificacao">
+              <div class="prova__texto">
+                <p class="prova__num">08</p>
+                <h3>Recertificação</h3>
+                <p>Treinamento no modelo novo de recertificação, simplificado, com instrutores que já fizeram as provas. Por isso, conhecimento e capacitação para um treinamento eficaz, nas mesmas condições oferecidas na prova.</p>
+              </div>
+              <figure class="prova__fig" aria-hidden="true">
+                <svg viewBox="0 0 480 320" class="ilus ilus--recertificacao">
+                  <path class="ilus__fio" d="M70 160 H410"/>
+                  <path class="ilus__fio-cheio" d="M70 160 H410"/>
+                  <g class="ilus__etapa" transform="translate(70 160)"><circle r="16"/><text y="54">Visual de</text><text y="72">ajuste de junta</text></g>
+                  <g class="ilus__etapa" transform="translate(240 160)"><circle r="16"/><text y="54">Inspeção durante</text><text y="72">a soldagem</text></g>
+                  <g class="ilus__etapa" transform="translate(410 160)"><circle r="16"/><text y="54">Visual final</text><text y="72">de solda</text></g>
+                </svg>
+                <figcaption>As três disciplinas da nova formatação</figcaption>
+              </figure>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 · MATERIAL -->
+      <section class="secao material" id="material" aria-labelledby="material-titulo">
+        <div class="secao__miolo">
+          <p class="rotulo" data-surgir><span>05</span>Material oferecido</p>
+          <h2 class="titulo" id="material-titulo" data-titulo>Recursos para você não travar no dia da prova.</h2>
+          <div class="recursos">
+            <article class="recurso" data-luz data-surgir>
+              <svg class="recurso__icone" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 6h18l8 8v28H12z M30 6v8h8 M18 22h14 M18 28h14 M18 34h9"/></svg>
+              <h3>Material escrito</h3>
+              <ul><li>Procedimentos similares aos utilizados nas provas</li><li>Exercícios que desenvolvem a compreensão e o raciocínio</li><li>Vários simulados</li><li>Treinamento personalizado</li></ul>
+            </article>
+            <article class="recurso" data-luz data-surgir>
+              <svg class="recurso__icone" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h32v22H8z M4 38h40 M18 32l-2 6 M30 32l2 6 M14 26l6-7 5 4 7-9"/></svg>
+              <h3>Aula informatizada</h3>
+              <ul><li>Aula de tratamento térmico e documentos técnicos no computador</li><li>Simulados no computador no nível da prova</li></ul>
+            </article>
+            <article class="recurso" data-luz data-surgir>
+              <svg class="recurso__icone" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12h36v24H6z M20 18v12l10-6z"/></svg>
+              <h3>Material audiovisual</h3>
+              <ul><li>Vídeos desenvolvidos para facilitar o entendimento, principalmente da prova teórica</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 · ESTRUTURA E HOSPEDAGEM -->
+      <section class="secao estrutura" id="estrutura" aria-labelledby="estrutura-titulo">
+        <div class="secao__miolo estrutura__topo">
+          <div>
+            <p class="rotulo" data-surgir><span>06</span>Estrutura e hospedagem</p>
+            <h2 class="titulo" id="estrutura-titulo" data-titulo>Conheça nosso CT de Treinamento</h2>
+            <div class="estrutura__texto">
+              <p class="secao__intro" data-surgir>Nosso Centro de Treinamento conta com uma estrutura preparada para proporcionar conforto, praticidade e qualidade durante toda a jornada de aprendizado dos nossos alunos.</p>
+              <p class="secao__intro" data-surgir>O ambiente dispõe de salas equipadas com computadores de ótima qualidade, proporcionando condições adequadas para estudos, atividades e desenvolvimento profissional.</p>
+              <p class="secao__intro" data-surgir>Além disso, contamos com uma cozinha totalmente equipada e disponibilizada para utilização de todos os alunos, oferecendo mais comodidade durante a permanência no centro de treinamento.</p>
+            </div>
+            <ul class="estrutura__itens">
+              <li data-surgir>Instrumentos, corpos de prova e exercícios liberados depois das 8 horas de treinamento com o instrutor, para você estudar mais.</li>
+              <li data-surgir>Quartos coletivos com ar-condicionado, TV e wi-fi.</li>
+              <li data-surgir>Ambiente tranquilo, voltado inteiramente para o aprendizado.</li>
+            </ul>
+          </div>
+          <figure class="rota" data-surgir aria-label="CDC a um quarteirão do SENAI e a 10 minutos da FBTS">
+            <svg viewBox="0 0 420 300" aria-hidden="true">
+              <path class="rota__linha" d="M70 210 C 150 210, 170 120, 250 110"/>
+              <path class="rota__linha" d="M70 210 C 170 230, 280 250, 360 230"/>
+              <g class="rota__no rota__no--cdc" transform="translate(70 210)"><circle r="12"/><text x="-8" y="40">CDC</text></g>
+              <g class="rota__no" transform="translate(250 110)"><circle r="9"/><text x="-26" y="-22">SENAI</text></g>
+              <g class="rota__no" transform="translate(360 230)"><circle r="9"/><text x="-18" y="38">FBTS</text></g>
+              <text class="rota__dist" x="132" y="142">1 quarteirão</text>
+              <text class="rota__dist" x="214" y="270">10 min</text>
+            </svg>
+            <figcaption><span class="rota__texto">A um quarteirão do SENAI de solda, onde as provas são realizadas, e a 10 minutos da FBTS.</span>Rua Jorge Rudge, 180 · Maracanã</figcaption>
+          </figure>
+        </div>
+
+        <div class="secao__miolo">
+          <div class="recursos recursos--dois">
+            <article class="recurso" data-luz data-surgir>
+              <svg class="recurso__icone" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 9h36v24H6z M17 39h14 M24 33v6 M12 16h12 M12 21h20 M12 26h8"/></svg>
+              <h3>Sala de informática</h3>
+              <ul><li>Sala totalmente equipada</li><li>Computadores de ótima qualidade</li><li>Ambiente preparado para apoiar os estudos e as atividades de formação dos alunos</li></ul>
+            </article>
+            <article class="recurso" data-luz data-surgir>
+              <svg class="recurso__icone" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 16h32v24H8z M8 22h32 M14 19h2 M20 19h2 M15 28h18v7H15z M14 10c0-2 2-2 2-4 M23 10c0-2 2-2 2-4 M32 10c0-2 2-2 2-4"/></svg>
+              <h3>Cozinha equipada</h3>
+              <ul><li>Geladeira</li><li>Fogão</li><li>Air fryer</li><li>Misteira</li><li>Armários</li><li>Espaço disponível para utilização de todos os alunos</li></ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="filme" aria-label="Fotos do CT de Treinamento">
+          <div class="filme__trilho">
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 825 / 1100"><img src="./fotos/ct-sala-de-informatica.webp" width="825" height="1100" alt="Sala de informática com computadores, teclados e cadeiras" loading="lazy" decoding="async" /></div><figcaption><span>01</span>Sala de informática</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 1467 / 1100"><img src="./fotos/ct-sala-de-aula.webp" width="1467" height="1100" alt="Sala de aula com mesas longas, quadro branco e o pôster da CDC com as posições de soldagem" loading="lazy" decoding="async" /></div><figcaption><span>02</span>Sala de aula teórica</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 1100 / 1100"><img src="./fotos/ct-sala-de-estudos.webp" width="1100" height="1100" alt="Sala com carteiras, a placa da CDC na parede e uma estante de livros" loading="lazy" decoding="async" /></div><figcaption><span>03</span>Sala de estudos com estante de livros</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 825 / 1100"><img src="./fotos/ct-apoio.webp" width="825" height="1100" alt="Mesa com computador, impressora, notebook e monitor na parede" loading="lazy" decoding="async" /></div><figcaption><span>04</span>Apoio com computador e impressora</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 825 / 1100"><img src="./fotos/ct-treino-pratico.webp" width="825" height="1100" alt="Instrutor mede um tubo soldado com trena ao lado de uma pessoa com máscara e avental de solda" loading="lazy" decoding="async" /></div><figcaption><span>05</span>Treino prático: medição do tubo soldado</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 825 / 1100"><img src="./fotos/ct-estufas-e-consumiveis.webp" width="825" height="1100" alt="Corredor com as estufas de secagem e caixas de consumíveis de soldagem" loading="lazy" decoding="async" /></div><figcaption><span>06</span>Estufas e consumíveis</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 678 / 1100"><img src="./fotos/ct-hospedagem.webp" width="678" height="1100" alt="Quarto coletivo com beliches de lençóis verdes e mesas de apoio" loading="lazy" decoding="async" /></div><figcaption><span>07</span>Hospedagem: quarto coletivo</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 770 / 1100"><img src="./fotos/ct-cozinha.webp" width="770" height="1100" alt="Cozinha com mesa e cadeiras, armários, micro-ondas, liquidificador e filtro de água" loading="lazy" decoding="async" /></div><figcaption><span>08</span>Cozinha equipada</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 825 / 1100"><img src="./fotos/ct-fogao.webp" width="825" height="1100" alt="Fogão de cinco bocas na cozinha do centro de treinamento" loading="lazy" decoding="async" /></div><figcaption><span>09</span>Fogão de cinco bocas</figcaption></figure>
+            <figure class="filme__quadro"><div class="filme__foto" style="--ar: 727 / 1100"><img src="./fotos/ct-air-fryer-e-misteira.webp" width="727" height="1100" alt="Air fryer e misteira sobre a bancada da cozinha" loading="lazy" decoding="async" /></div><figcaption><span>10</span>Air fryer e misteira</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 · DEPOIMENTOS -->
+      <section class="secao depoimentos" id="depoimentos" aria-labelledby="depoimentos-titulo">
+        <div class="secao__miolo">
+          <p class="rotulo" data-surgir><span>07</span>Depoimentos</p>
+          <h2 class="sr" id="depoimentos-titulo">Depoimentos de alunos</h2>
+          <div class="falas" aria-roledescription="carrossel" aria-label="Depoimentos de alunos">
+            <figure class="fala is-ativa" aria-roledescription="depoimento">
+              <blockquote>Bom dia Deiwson e Rose. Gostaria de agradecer a vcs pelo excelente treinamento que vcs me proporcionaram. Fui aprovado no exame. Graças a Deus. Parabéns e muito obrigado!! Abraço</blockquote>
+              <figcaption><b>Geraldo Feliciano Ferreira</b><span>Aprovado no exame</span></figcaption>
+            </figure>
+            <figure class="fala" aria-roledescription="depoimento">
+              <blockquote>Opa... só saiu meu resultado hoje da recertificação!! Obrigado pela atenção dispensada!!</blockquote>
+              <figcaption><b>Maurilio Knop</b><span>Recertificado</span></figcaption>
+            </figure>
+            <figure class="fala" aria-roledescription="depoimento">
+              <blockquote>Deiwson e Rose, bom dia, obrigado pelo treinamento e hospitalidade. Passando pra te falar que fui aprovado na recertificação.</blockquote>
+              <figcaption><b>Oswaldo Teles</b><span>Recertificado</span></figcaption>
+            </figure>
+          </div>
+          <div class="falas__controles">
+            <button class="falas__seta" type="button" data-falas="-1" aria-label="Depoimento anterior">←</button>
+            <p class="falas__pos" aria-live="polite"><b>1</b> de 3</p>
+            <button class="falas__seta" type="button" data-falas="1" aria-label="Próximo depoimento">→</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 · ÁREA DO ALUNO: abre o ambiente próprio (portal); só o login vai para a Kiwify -->
+      <section class="secao aluno" id="area-do-aluno" aria-labelledby="aluno-titulo">
+        <div class="secao__miolo">
+          <p class="rotulo" data-surgir><span>08</span>Área do aluno</p>
+          <h2 class="titulo titulo--menor" id="aluno-titulo" data-titulo>Apostilas, vídeos e exercícios.</h2>
+          <p class="secao__intro" data-surgir>Os materiais da área comum abrem aqui mesmo no site: leia, pesquise em todos eles e continue de onde parou.</p>
+          <form class="aluno__busca" role="search" data-surgir>
+            <label class="sr" for="busca-secao">Pesquisar nos materiais</label>
+            <input id="busca-secao" type="search" placeholder="Pesquisar nos materiais: dureza, eletrodo, simbologia…" autocomplete="off" />
+            <button class="botao botao--brasa" type="submit">Pesquisar</button>
+          </form>
+          <div class="acessos">
+            <a class="acesso" href="#area-comum-videos" data-luz data-surgir data-cursor="Abrir">
+              <span class="acesso__tipo">Área comum</span><b>Vídeos</b><span class="acesso__seta" aria-hidden="true">→</span>
+            </a>
+            <a class="acesso" href="#area-comum" data-luz data-surgir data-cursor="Abrir">
+              <span class="acesso__tipo">Área comum</span><b>Material</b><span class="acesso__seta" aria-hidden="true">→</span>
+            </a>
+            <a class="acesso acesso--curso" href="https://dashboard.kiwify.com.br/login" target="_blank" rel="noopener" data-luz data-surgir data-cursor="Entrar">
+              <span class="acesso__tipo">Área do curso</span><b>Faça seu login</b><span class="acesso__seta" aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <ul class="estante" aria-label="Materiais da área comum">
+            <li data-surgir><a class="estante__item" href="./materiais/apostila-teorica.pdf" data-abrir-material="apostila-teorica" data-cursor="Ler">
+              <img src="./materiais/capas/apostila-teorica.webp" alt="" width="72" height="93" loading="lazy" decoding="async" />
+              <span class="estante__texto"><small>Prova teórica · questões + gabarito</small><b>Apostila teórica</b><span>168 páginas</span></span>
+              <i class="estante__lido" data-progresso-de="apostila-teorica" hidden></i><span class="estante__ler">Ler</span>
+            </a></li>
+            <li data-surgir><a class="estante__item" href="./materiais/procedimento-recertificacao.pdf" data-abrir-material="procedimento-recertificacao" data-cursor="Ler">
+              <img src="./materiais/capas/procedimento-recertificacao.webp" alt="" width="72" height="101" loading="lazy" decoding="async" />
+              <span class="estante__texto"><small>Recertificação · IB-024 FBTS</small><b>Procedimento de recertificação</b><span>39 páginas</span></span>
+              <i class="estante__lido" data-progresso-de="procedimento-recertificacao" hidden></i><span class="estante__ler">Ler</span>
+            </a></li>
+            <li data-surgir><a class="estante__item" href="./materiais/procedimentos-provas-praticas.pdf" data-abrir-material="procedimentos-provas-praticas" data-cursor="Ler">
+              <img src="./materiais/capas/procedimentos-provas-praticas.webp" alt="" width="72" height="102" loading="lazy" decoding="async" />
+              <span class="estante__texto"><small>Prova prática · consumíveis e estufas</small><b>Procedimentos de provas práticas</b><span>5 páginas</span></span>
+              <i class="estante__lido" data-progresso-de="procedimentos-provas-praticas" hidden></i><span class="estante__ler">Ler</span>
+            </a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 10 · DÚVIDAS -->
+      <section class="secao duvidas" id="duvidas" aria-labelledby="duvidas-titulo">
+        <div class="secao__miolo duvidas__grade">
+          <div>
+            <p class="rotulo" data-surgir><span>09</span>Dúvidas</p>
+            <h2 class="titulo titulo--menor" id="duvidas-titulo" data-titulo>Perguntas frequentes</h2>
+          </div>
+          <div class="perguntas">
+            <details class="pergunta" data-surgir>
+              <summary>Como agendo o meu treinamento?</summary>
+              <div class="pergunta__resp"><p>Fale com a Rose pelo telefone ou WhatsApp (21) 98257-0418. O agendamento segue a disponibilidade do calendário e a agenda dos instrutores.</p></div>
+            </details>
+            <details class="pergunta" data-surgir>
+              <summary>Onde fica o centro de treinamento?</summary>
+              <div class="pergunta__resp"><p>Na Rua Jorge Rudge, 180, no Maracanã, Rio de Janeiro (RJ). Fica a um quarteirão do SENAI de solda, onde as provas são realizadas, e a 10 minutos da FBTS.</p></div>
+            </details>
+            <details class="pergunta" data-surgir>
+              <summary>A CDC oferece hospedagem?</summary>
+              <div class="pergunta__resp"><p>Sim. Quartos coletivos com ar-condicionado, TV e wi-fi, no local de treinamento. Depois das 8 horas de treinamento com o instrutor, os instrumentos, corpos de prova e exercícios ficam liberados para você continuar estudando.</p></div>
+            </details>
+            <details class="pergunta" data-surgir>
+              <summary>Como funciona o Curso Inspetor de Soldagem Nível 1?</summary>
+              <div class="pergunta__resp"><p>É semipresencial, com aulas gravadas, on-line e presenciais, e o acesso vale por 6 meses. O pagamento pode ser à vista ou parcelado no cartão de crédito.</p></div>
+            </details>
+            <details class="pergunta" data-surgir>
+              <summary>Como são cobrados os treinamentos de qualificação?</summary>
+              <div class="pergunta__resp"><p>Documentos técnicos e tratamento térmico: R$ 800 por 2 dias. Dureza, inspeção de eletrodo, estufa, acompanhamento de soldagem e inspeção visual: R$ 500 por diária de retreinamento (sugerimos 4 dias). O treinamento é de 8 horas por dia.</p></div>
+            </details>
+            <details class="pergunta" data-surgir>
+              <summary>Como acesso o material de estudo?</summary>
+              <div class="pergunta__resp"><p>Pela <a href="#area-do-aluno">Área do aluno</a>, aqui no site: a apostila teórica, o procedimento de recertificação e os procedimentos de provas práticas abrem direto no leitor, com busca e sumário. O curso fica na plataforma Kiwify, com o seu login.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 · CONTATO E PRÉ-INSCRIÇÃO -->
+      <section class="contato" id="contato" aria-labelledby="contato-titulo">
+        <div class="contato__palco" aria-hidden="true"></div>
+        <div class="secao__miolo">
+          <h2 class="contato__titulo" id="contato-titulo"><span class="contato__linha">Com qualidade</span><span class="contato__linha">desenvolvemos</span><span class="contato__linha contato__linha--brasa">competências.</span></h2>
+
+          <div class="contato__grade">
+            <form class="inscricao" novalidate data-surgir>
+              <h3>Pré-inscrição pelo WhatsApp</h3>
+              <p>Preencha e o WhatsApp abre com a mensagem pronta para a Rose. É só enviar.</p>
+              <label for="nome">Seu nome</label>
+              <input id="nome" name="nome" autocomplete="name" placeholder="Nome e sobrenome" required />
+              <label for="interesse">Treinamento</label>
+              <select id="interesse" name="interesse">
+                <option>Curso Inspetor de Soldagem Nível 1 (semipresencial)</option>
+                <option>Qualificação: documentos técnicos + tratamento térmico</option>
+                <option>Qualificação: diárias de retreinamento</option>
+                <option>Recertificação Nível 1 (2 dias)</option>
+                <option>Recertificação Nível 1 (3 dias)</option>
+                <option>Hospedagem</option>
+                <option>Tenho uma dúvida</option>
+              </select>
+              <label for="mensagem">Mensagem <span>(opcional)</span></label>
+              <textarea id="mensagem" name="mensagem" rows="3" placeholder="Datas que você prefere, dúvidas…"></textarea>
+              <a class="botao botao--brasa botao--grande inscricao__enviar" href="https://wa.me/5521982570418" target="_blank" rel="noopener" data-magnetico>Abrir no WhatsApp</a>
+              <p class="inscricao__msg" aria-live="polite"></p>
+            </form>
+
+            <div class="canais">
+              <div class="canal" data-surgir>
+                <p class="canal__tipo">Telefone e WhatsApp</p>
+                <p class="canal__valor"><a href="tel:+5521982570418">(21) 98257-0418</a><button class="copiar" type="button" data-copiar="(21) 98257-0418">Copiar</button></p>
+                <p class="canal__obs">Rose · agendamento dos treinamentos</p>
+                <p class="canal__valor"><a href="tel:+5521982570433">(21) 98257-0433</a><button class="copiar" type="button" data-copiar="(21) 98257-0433">Copiar</button></p>
+              </div>
+              <div class="canal" data-surgir>
+                <p class="canal__tipo">E-mail</p>
+                <p class="canal__valor"><a href="mailto:deiwsonribeiro@gmail.com">deiwsonribeiro@gmail.com</a><button class="copiar" type="button" data-copiar="deiwsonribeiro@gmail.com">Copiar</button></p>
+                <p class="canal__valor"><a href="mailto:rosecdcinsp@gmail.com">rosecdcinsp@gmail.com</a><button class="copiar" type="button" data-copiar="rosecdcinsp@gmail.com">Copiar</button></p>
+              </div>
+              <div class="canal" data-surgir>
+                <p class="canal__tipo">Endereço</p>
+                <p class="canal__valor canal__valor--texto">Rua Jorge Rudge, 180<br />Maracanã · Rio de Janeiro (RJ)</p>
+                <p><a class="link-seta" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Jorge%20Rudge%2C%20180%2C%20Maracan%C3%A3%2C%20Rio%20de%20Janeiro%20-%20RJ" target="_blank" rel="noopener">Abrir no mapa ↗</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="rodape__marca"><i class="logo logo--fundido"></i></div>
+      <div class="rodape__grade">
+        <p class="rodape__nome">CDC Capacitação em Qualidade<br /><span>Deiwson Ribeiro ME · desde 2005</span></p>
+        <nav class="rodape__links" aria-label="Rodapé">
+          <a href="#a-cdc">A CDC</a><a href="#treinamentos">Treinamentos</a><a href="#provas">Provas</a><a href="#estrutura">Estrutura</a><a href="#depoimentos">Depoimentos</a><a href="#area-do-aluno">Área do aluno</a><a href="#contato">Contato</a>
+        </nav>
+        <p class="rodape__contato">(21) 98257-0433 · (21) 98257-0418<br />Rua Jorge Rudge, 180 · Maracanã · Rio de Janeiro (RJ)</p>
+      </div>
+      <p class="rodape__fim">© 2026 CDC Capacitação em Qualidade. Todos os direitos reservados.</p>
+    </footer>
+
+    <a class="zap" href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Vim%20pelo%20site%20da%20CDC." target="_blank" rel="noopener" aria-label="Falar com a Rose no WhatsApp" data-magnetico>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.5c0 3.4 2.6 6.5 6.4 6.5l.9-1.6-2-1-1 .9a4 4 0 0 1-2.2-2.2l.9-1-1-2Z" fill="currentColor"/></svg>
+      <span>Agendar com a Rose</span>
+    </a>
+
+    <!-- ÁREA DO ALUNO: ambiente próprio (biblioteca + leitor de PDF) -->
+    <div class="portal" id="portal" hidden role="dialog" aria-modal="true" aria-labelledby="portal-titulo">
+      <header class="portal__topo">
+        <button class="portal__sair" type="button" data-fechar-portal><span aria-hidden="true">←</span><span class="portal__sair-txt">Voltar ao site</span></button>
+        <p class="portal__marca"><i class="logo"></i><span>Área do aluno</span></p>
+        <a class="botao botao--vidro portal__curso" data-kiwify href="https://dashboard.kiwify.com.br/login" target="_blank" rel="noopener">Área do curso <span aria-hidden="true">↗</span></a>
+      </header>
+      <div class="portal__corpo" data-lenis-prevent>
+        <section class="biblioteca">
+          <div class="biblioteca__cabeca">
+            <p class="rotulo"><span>CDC</span>Área comum</p>
+            <h2 class="biblioteca__titulo" id="portal-titulo">Materiais de estudo</h2>
+            <p class="biblioteca__intro">Apostila de questões, procedimento de recertificação e procedimentos de provas práticas. Leia aqui mesmo, pesquise em todos os materiais e continue de onde parou.</p>
+            <div class="biblioteca__abas" role="tablist" aria-label="Conteúdo da área comum">
+              <button type="button" role="tab" data-aba="materiais" aria-selected="true">Materiais <b>3</b></button>
+              <button type="button" role="tab" data-aba="videos" aria-selected="false">Vídeos <b>0</b></button>
+            </div>
+            <form class="biblioteca__busca" role="search">
+              <label class="sr" for="busca-materiais">Pesquisar nos materiais</label>
+              <input id="busca-materiais" type="search" placeholder="Pesquisar nos materiais: dureza, eletrodo, simbologia…" autocomplete="off" />
+              <button class="botao botao--brasa" type="submit">Pesquisar</button>
+            </form>
+          </div>
+          <div data-painel-de="materiais">
+            <div class="biblioteca__continuar" hidden></div>
+            <div class="biblioteca__materiais"></div>
+          </div>
+          <div class="biblioteca__resultados" hidden aria-live="polite"></div>
+          <div data-painel-de="videos" hidden>
+            <div class="vazio">
+              <svg class="vazio__icone" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="10" width="38" height="28" rx="5"/><path d="M20 18v12l10-6z"/></svg>
+              <h3>Ainda não há vídeos na área comum.</h3>
+              <p>Os vídeos aparecem aqui assim que forem publicados. As aulas gravadas do Curso Inspetor de Soldagem Nível 1 ficam na Área do curso.</p>
+              <a class="botao botao--brasa" data-kiwify href="https://dashboard.kiwify.com.br/login" target="_blank" rel="noopener">Entrar na Área do curso <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="leitor" hidden aria-label="Leitor de material">
+          <header class="leitor__barra">
+            <button class="leitor__voltar" type="button" data-voltar><span aria-hidden="true">←</span><span class="leitor__voltar-txt">Materiais</span></button>
+            <div class="leitor__nome"><b class="leitor__titulo"></b><span class="leitor__codigo"></span></div>
+            <div class="leitor__grupo leitor__paginacao">
+              <button type="button" data-pag="-1" aria-label="Página anterior">‹</button>
+              <label class="leitor__pag"><input class="leitor__num" type="number" min="1" value="1" inputmode="numeric" aria-label="Página atual" /><span class="leitor__total">/ 0</span></label>
+              <button type="button" data-pag="1" aria-label="Próxima página">›</button>
+            </div>
+            <div class="leitor__grupo leitor__zoom">
+              <button type="button" data-zoom="-1" aria-label="Diminuir o zoom">−</button>
+              <button type="button" data-zoom="0" class="leitor__ajuste" aria-label="Ajustar à largura">100%</button>
+              <button type="button" data-zoom="1" aria-label="Aumentar o zoom">+</button>
+            </div>
+            <div class="leitor__grupo leitor__ferramentas">
+              <button type="button" data-painel="sumario" aria-pressed="false">Sumário</button>
+              <button type="button" data-painel="busca" aria-pressed="false">Buscar</button>
+              <a class="leitor__abrir" href="#" target="_blank" rel="noopener">Abrir PDF <span aria-hidden="true">↗</span></a>
+              <a class="leitor__baixar" href="#">Baixar</a>
+            </div>
+          </header>
+          <div class="leitor__miolo">
+            <aside class="leitor__painel" hidden data-lenis-prevent>
+              <div class="painel__topo">
+                <div class="painel__abas" role="tablist" aria-label="Navegação do material">
+                  <button type="button" role="tab" data-painel-aba="sumario">Sumário</button>
+                  <button type="button" role="tab" data-painel-aba="paginas">Páginas</button>
+                  <button type="button" role="tab" data-painel-aba="busca">Buscar</button>
+                </div>
+                <button type="button" class="painel__fechar" aria-label="Fechar o painel">×</button>
+              </div>
+              <div class="painel__sumario"><button type="button" class="painel__atalho" hidden></button><ol></ol></div>
+              <div class="painel__paginas" hidden></div>
+              <div class="painel__busca" hidden>
+                <label class="sr" for="busca-documento">Buscar neste material</label>
+                <input id="busca-documento" type="search" placeholder="Buscar neste material" autocomplete="off" />
+                <p class="busca__info"></p>
+                <div class="busca__nav" hidden><button type="button" data-achado="-1" aria-label="Ocorrência anterior">↑</button><span class="busca__pos"></span><button type="button" data-achado="1" aria-label="Próxima ocorrência">↓</button></div>
+                <ol class="busca__lista"></ol>
+              </div>
+            </aside>
+            <div class="leitor__paginas" tabindex="0" data-lenis-prevent aria-label="Páginas do material">
+              <div class="leitor__trilho"></div>
+            </div>
+            <div class="leitor__estado" hidden><p class="leitor__msg"></p><span class="leitor__carga"><i></i></span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="aviso" role="status" aria-live="polite"></div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

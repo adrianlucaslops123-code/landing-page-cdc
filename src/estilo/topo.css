@@ -1,0 +1,196 @@
+/* ---------- abertura (carga) ---------- */
+.carga {
+  position: fixed; inset: 0; z-index: 99; display: grid; place-items: center;
+  background: var(--aco-0); pointer-events: none;
+}
+html:not(.js) .carga, html.sem-carga .carga { display: none }
+.carga__marca {
+  position: relative; width: min(46vw, 340px); aspect-ratio: 1400 / 717;
+  background: rgba(168, 194, 222, 0.08);
+  -webkit-mask: url('/marca/cdc-mascara.png') center / contain no-repeat;
+  mask: url('/marca/cdc-mascara.png') center / contain no-repeat;
+}
+.carga__fundido {
+  position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--carga, 0) * 100%);
+  background: linear-gradient(to top, var(--brasa-escura), var(--brasa) 40%, var(--brasa-quente) 85%, #fff4dc);
+  box-shadow: 0 -2px 18px 2px rgba(255, 210, 140, 0.9);
+}
+.carga__info {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  display: flex; justify-content: space-between; gap: 16px;
+  font: 500 var(--t-mono) / 1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--texto-2);
+}
+.carga__num { color: var(--texto); font-variant-numeric: tabular-nums }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed; z-index: 50; top: calc(12px + env(safe-area-inset-top, 0px)); left: 50%; translate: -50% 0;
+  width: min(calc(100% - 2 * var(--gutter)), 1320px); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 0 8px 0 18px; border-radius: 16px;
+  background: rgba(10, 13, 17, 0.55); box-shadow: inset 0 0 0 1px var(--fio);
+  backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque);
+  transition: background 0.4s, box-shadow 0.4s;
+}
+.nav.is-solida { background: rgba(10, 13, 17, 0.82); box-shadow: inset 0 0 0 1px var(--fio), 0 18px 40px -24px #000 }
+.nav__marca { display: block; width: 70px; flex: none }
+.nav__marca .logo { transition: filter 0.3s }
+:where(html:not(.toque)) .nav__marca:hover .logo { filter: drop-shadow(0 0 8px rgba(251, 120, 30, 0.8)) }
+.nav__links { display: flex; gap: clamp(14px, 1.8vw, 28px) }
+.nav__links a {
+  position: relative; padding: 6px 0;
+  font: 500 14px/1 var(--ui); color: var(--texto-2); text-decoration: none; transition: color 0.25s;
+}
+.nav__links a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; border-radius: 2px;
+  background: var(--revenido); scale: 0 1; transform-origin: 100% 50%; transition: scale 0.5s var(--entrada);
+}
+:where(html:not(.is-rolando):not(.toque)) .nav__links a:hover { color: var(--texto) }
+:where(html:not(.is-rolando):not(.toque)) .nav__links a:hover::after,
+.nav__links a.is-aqui::after { scale: 1 1; transform-origin: 0 50% }
+.nav__links a.is-aqui { color: var(--texto) }
+.nav__acoes { display: flex; align-items: center; gap: 8px }
+.nav__aluno, .nav__cta { min-height: 44px; padding: 0 16px; font-size: 14px }
+
+/* botão de som: quatro barras que dançam quando ligado */
+.som {
+  display: flex; align-items: center; justify-content: center; gap: 3px;
+  width: 44px; height: 44px; border: 0; border-radius: var(--r-botao); cursor: pointer;
+  background: transparent; box-shadow: inset 0 0 0 1px var(--fio);
+}
+.som i { width: 2px; height: 6px; border-radius: 2px; background: var(--texto-2); transition: height 0.3s, background 0.3s }
+.som[aria-pressed='true'] i { background: var(--brasa); animation: barra 0.9s ease-in-out infinite }
+.som[aria-pressed='true'] i:nth-child(2) { animation-delay: -0.3s }
+.som[aria-pressed='true'] i:nth-child(3) { animation-delay: -0.6s }
+.som[aria-pressed='true'] i:nth-child(4) { animation-delay: -0.15s }
+@keyframes barra { 0%, 100% { height: 5px } 50% { height: 16px } }
+
+.menu-botao {
+  display: none; width: 44px; height: 44px; border: 0; border-radius: var(--r-botao); cursor: pointer;
+  background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px var(--fio-forte);
+  flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+}
+.menu-botao i { width: 18px; height: 1.5px; background: var(--texto); transition: translate 0.4s var(--entrada), rotate 0.4s var(--entrada) }
+.menu-botao[aria-expanded='true'] i:first-child { translate: 0 3.75px; rotate: 45deg }
+.menu-botao[aria-expanded='true'] i:last-child { translate: 0 -3.75px; rotate: -45deg }
+
+.menu {
+  position: fixed; inset: 0; z-index: 45; display: flex; flex-direction: column; justify-content: center; gap: 40px;
+  padding: calc(96px + env(safe-area-inset-top, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px)) calc(32px + env(safe-area-inset-bottom, 0px)) max(var(--gutter), env(safe-area-inset-left, 0px));
+  background: rgba(7, 9, 12, 0.985); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+}
+.menu nav { display: flex; flex-direction: column; gap: 6px }
+.menu nav a {
+  display: flex; align-items: baseline; gap: 14px; padding: 6px 0;
+  font: 750 clamp(30px, 9vw, 52px)/1.05 var(--display); font-stretch: 112%; letter-spacing: -0.02em; text-decoration: none;
+}
+.menu nav a span { font: 500 12px/1 var(--mono); color: var(--brasa); letter-spacing: 0.1em }
+.menu__pe { font: 500 13px/1.4 var(--mono); color: var(--texto-2) }
+.menu__pe a { color: var(--brasa) }
+
+@media (max-width: 1080px) {
+  .nav__links { display: none }
+  .menu-botao { display: flex }
+}
+@media (max-width: 560px) {
+  .nav { height: 56px; padding-left: 14px }
+  .nav__aluno { display: none }
+  .nav__cta { padding: 0 14px }
+  .nav__marca { width: 60px }
+}
+@media (max-width: 380px) { .som { display: none } }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative; height: 100vh; height: 100svh; min-height: 620px; overflow: clip;
+  background:
+    radial-gradient(70vmax 46vmax at 50% 38%, rgba(63, 114, 212, 0.13), transparent 70%),
+    radial-gradient(54vmax 30vmax at 50% 70%, rgba(251, 120, 30, 0.12), transparent 70%),
+    linear-gradient(to bottom, #0a0d12, var(--aco-0));
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(ellipse 80% 70% at 50% 42%, transparent calc(52% - var(--vinheta, 0) * 30%), rgba(0, 0, 0, calc(0.62 + var(--vinheta, 0) * 0.38)));
+}
+.hero.sem-webgl .hero__palco {
+  /* sem WebGL: o logo aparece pintado com o mesmo gradiente */
+  inset: 14% 22% auto; height: 46%;
+  background: linear-gradient(to bottom, #ffd38a, var(--brasa) 45%, #b23a0c);
+  -webkit-mask: url('/marca/cdc-mascara.png') center / contain no-repeat;
+  mask: url('/marca/cdc-mascara.png') center / contain no-repeat;
+}
+.hero__palco { position: absolute; inset: 0; cursor: crosshair; touch-action: pan-y }
+html.tem-cursor .hero__palco { cursor: none }
+.hero__palco canvas { display: block; width: 100%; height: 100% }
+.hero__flash {
+  position: absolute; inset: 0; pointer-events: none; opacity: var(--flash, 0); mix-blend-mode: screen;
+  background: radial-gradient(40vmax 34vmax at var(--fx, 50%) var(--fy, 40%), rgba(214, 236, 255, 0.85), rgba(120, 180, 255, 0.25) 40%, transparent 72%);
+}
+.hero__lema {
+  position: absolute; left: var(--lema-x, 69%); top: var(--lema-y, 64%); translate: -50% 0; z-index: 2;
+  font: 600 clamp(11px, 1vw, 14px)/1 var(--display); font-stretch: 125%; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--ouro); white-space: nowrap; pointer-events: none;
+}
+.hero__conteudo {
+  position: absolute; z-index: 3; left: max(var(--gutter), env(safe-area-inset-left, 0px)); top: 50%; translate: 0 -44%;
+  width: min(600px, 44vw);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 18px; pointer-events: none;
+}
+@media (max-width: 899px), (max-aspect-ratio: 11/10) {
+  .hero__conteudo { top: auto; translate: none; bottom: calc(64px + env(safe-area-inset-bottom, 0px)); width: min(640px, calc(100% - 2 * var(--gutter))) }
+  .hero__lema { display: none }
+}
+.hero__conteudo a, .hero__conteudo .selo { pointer-events: auto }
+.hero__titulo {
+  font: 780 clamp(34px, 4.4vw, 70px)/0.98 var(--display); font-stretch: 108%; letter-spacing: -0.025em;
+  text-wrap: balance; text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
+}
+.hero__texto { max-width: 52ch; color: var(--texto-2); font-size: clamp(15px, 1.15vw, 18px); text-shadow: 0 1px 16px rgba(0, 0, 0, 0.8) }
+.hero__acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px }
+.hero__dica {
+  position: absolute; z-index: 2; right: max(var(--gutter), env(safe-area-inset-right, 0px)); bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+  max-width: 320px; text-align: right;
+  font: 500 11px/1.5 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto-2);
+  opacity: 0; transition: opacity 1s 0.4s;
+}
+.is-pronto .hero__dica { opacity: 0.85 }
+.dica--toque { display: none }
+html.toque .dica--mouse { display: none }
+html.toque .dica--toque { display: inline }
+.hero__rolar {
+  position: absolute; z-index: 2; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); translate: -50% 0;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font: 500 10px/1 var(--mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--texto-3);
+}
+.hero__rolar i { width: 1px; height: 28px; background: linear-gradient(var(--texto-2), transparent); transform-origin: 50% 0; animation: rolar 2s var(--suave) infinite }
+@keyframes rolar { 0% { scale: 1 0 } 50% { scale: 1 1; transform-origin: 50% 0 } 51% { transform-origin: 50% 100% } 100% { scale: 1 0; transform-origin: 50% 100% } }
+
+@media (max-width: 860px) {
+  .hero__dica { display: none }
+  .hero__lema { letter-spacing: 0.3em }
+  .hero__conteudo { gap: 14px }
+  .hero__acoes { width: 100% }
+  .hero__acoes .botao { flex: 1 1 220px }
+}
+@media (max-width: 860px) and (max-height: 700px) { .hero__texto { display: none } }
+
+/* ---------- botão flutuante do WhatsApp ---------- */
+.zap {
+  position: fixed; z-index: 44; isolation: isolate; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; gap: 0; height: 56px; padding: 0 16px; border-radius: var(--r-pilula);
+  background: var(--brasa); color: var(--brasa-texto); text-decoration: none; font-weight: 600; font-size: 15px;
+  box-shadow: 0 14px 34px -12px rgba(251, 120, 30, 0.8);
+  translate: 0 140%; transition: translate 0.7s var(--mola), gap 0.4s var(--entrada);
+}
+.zap.is-visivel { translate: 0 0 }
+.zap svg { width: 24px; height: 24px; flex: none }
+.zap span { max-width: 0; overflow: hidden; white-space: nowrap; transition: max-width 0.5s var(--entrada) }
+:where(html:not(.toque)) .zap:hover { gap: 10px }
+:where(html:not(.toque)) .zap:hover span { max-width: 200px }
+.zap::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1;
+  box-shadow: 0 0 0 0 rgba(251, 120, 30, 0.6); animation: anel 2.6s var(--entrada) infinite;
+}
+@keyframes anel { 0% { box-shadow: 0 0 0 0 rgba(251, 120, 30, 0.55) } 70%, 100% { box-shadow: 0 0 0 18px rgba(251, 120, 30, 0) } }
+@media (max-width: 760px) { .zap { right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); height: 52px; padding: 0 14px } }
+@media (prefers-reduced-motion: reduce) { .zap::before, .hero__rolar i, .som i { animation: none !important } }

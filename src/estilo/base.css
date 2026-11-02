@@ -1,0 +1,173 @@
+*, *::before, *::after { box-sizing: border-box }
+[hidden] { display: none !important }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100% }
+html.lenis, html.lenis body { height: auto }
+.lenis.lenis-smooth { scroll-behavior: auto !important }
+.lenis.lenis-stopped { overflow: clip }
+body {
+  margin: 0;
+  background: var(--aco-0);
+  color: var(--texto);
+  font-family: var(--ui);
+  font-size: var(--t-corpo);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100% }
+a { color: inherit }
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0 }
+ul, ol { padding: 0; list-style: none }
+button { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--arco); outline-offset: 3px; border-radius: 6px }
+::selection { background: var(--brasa); color: var(--brasa-texto) }
+
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+.pular {
+  position: fixed; z-index: 100; left: 16px; top: -80px;
+  padding: 12px 16px; border-radius: var(--r-botao);
+  background: var(--texto); color: var(--aco-0); text-decoration: none; font-weight: 600;
+  transition: top 0.25s var(--entrada);
+}
+.pular:focus { top: calc(16px + env(safe-area-inset-top, 0px)) }
+
+/* ---------- logo pintável (máscara do logo real) ---------- */
+.logo {
+  display: block; aspect-ratio: 1400 / 717; width: 100%;
+  background: var(--brasa);
+  -webkit-mask: url('/marca/cdc-mascara.png') center / contain no-repeat;
+  mask: url('/marca/cdc-mascara.png') center / contain no-repeat;
+}
+.logo--fundido {
+  background: linear-gradient(100deg, var(--brasa-escura) 0%, var(--brasa) 30%, var(--brasa-quente) 46%, #fff3d6 50%, var(--brasa-quente) 54%, var(--brasa) 70%, var(--ouro) 100%);
+  background-size: 220% 100%;
+  animation: fundir 7s linear infinite;
+}
+@keyframes fundir { from { background-position: 110% 0 } to { background-position: -110% 0 } }
+
+/* ---------- rótulos e selos ---------- */
+.rotulo {
+  display: flex; align-items: center; gap: 12px;
+  font: 500 var(--t-mono) / 1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--texto-2);
+}
+.rotulo span { color: var(--brasa); }
+.rotulo::after { content: ''; flex: 0 0 48px; height: 1px; background: var(--revenido); opacity: 0.8 }
+.selo {
+  display: inline-flex; align-items: center; gap: 10px; height: 32px; padding: 0 14px;
+  border-radius: var(--r-pilula); background: var(--vidro); box-shadow: inset 0 0 0 1px var(--fio);
+  backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque);
+  font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--texto);
+}
+.selo i { width: 7px; height: 7px; border-radius: 50%; background: var(--brasa); box-shadow: 0 0 12px 2px rgba(251, 120, 30, 0.7); animation: pulsar 2.4s ease-in-out infinite }
+@keyframes pulsar { 50% { opacity: 0.35; box-shadow: 0 0 4px 0 rgba(251, 120, 30, 0.4) } }
+
+/* ---------- botões ---------- */
+.botao {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 46px; padding: 0 20px; border: 0; border-radius: var(--r-botao);
+  font: 600 15px/1.1 var(--ui); letter-spacing: -0.005em; text-decoration: none; text-align: center;
+  cursor: pointer; transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+}
+.botao--grande { min-height: 54px; padding: 0 26px; font-size: 16px }
+.botao--brasa { background: var(--brasa); color: var(--brasa-texto); box-shadow: 0 10px 30px -12px rgba(251, 120, 30, 0.7) }
+.botao--brasa::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(105deg, transparent 32%, rgba(255, 246, 225, 0.75) 50%, transparent 68%);
+  translate: -120% 0; transition: translate 0.8s var(--entrada);
+}
+.botao--vidro { background: rgba(255, 255, 255, 0.06); color: var(--texto); box-shadow: inset 0 0 0 1px var(--fio-forte); backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque) }
+.botao .icone { width: 20px; height: 20px; flex: none }
+:where(html:not(.toque)) .botao--brasa:hover::before { translate: 120% 0 }
+:where(html:not(.toque)) .botao--brasa:hover { background: #ff8a36 }
+:where(html:not(.toque)) .botao--vidro:hover { background: rgba(255, 255, 255, 0.12); box-shadow: inset 0 0 0 1px rgba(168, 216, 255, 0.45) }
+.onda {
+  position: absolute; z-index: -1; border-radius: 50%; pointer-events: none;
+  width: 12px; height: 12px; margin: -6px 0 0 -6px; background: rgba(255, 255, 255, 0.45);
+  animation: onda 0.7s var(--entrada) forwards;
+}
+@keyframes onda { to { transform: scale(40); opacity: 0 } }
+.link-seta { color: var(--brasa); text-decoration: none; font-weight: 600 }
+:where(html:not(.toque)) .link-seta:hover { text-decoration: underline; text-underline-offset: 4px }
+
+/* ---------- grão de filme ---------- */
+.grao {
+  position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grao 0.9s steps(6) infinite;
+}
+@keyframes grao {
+  0% { transform: translate(0, 0) } 20% { transform: translate(-4%, 3%) } 40% { transform: translate(3%, -5%) }
+  60% { transform: translate(-6%, -2%) } 80% { transform: translate(5%, 4%) } 100% { transform: translate(0, 0) }
+}
+
+/* ---------- cursor ---------- */
+.cursor { display: none }
+html.tem-cursor .cursor { display: block }
+html.tem-cursor:not(.portal-aberto), html.tem-cursor:not(.portal-aberto) * { cursor: none !important }
+html.tem-cursor:not(.portal-aberto) input, html.tem-cursor:not(.portal-aberto) textarea, html.tem-cursor:not(.portal-aberto) select { cursor: text !important }
+.cursor__ponto, .cursor__anel {
+  position: fixed; z-index: 95; left: 0; top: 0; pointer-events: none; border-radius: 50%;
+}
+.cursor__ponto { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: var(--texto); mix-blend-mode: difference }
+.cursor__anel {
+  width: 38px; height: 38px; margin: -19px 0 0 -19px;
+  box-shadow: inset 0 0 0 1px rgba(238, 241, 244, 0.5);
+  display: grid; place-items: center;
+  transition: width 0.35s var(--entrada), height 0.35s var(--entrada), margin 0.35s var(--entrada), background 0.3s, box-shadow 0.3s;
+}
+.cursor__rotulo { font: 500 10px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--brasa-texto); opacity: 0; transition: opacity 0.2s }
+.cursor.is-link .cursor__anel { width: 58px; height: 58px; margin: -29px 0 0 -29px; box-shadow: inset 0 0 0 1px var(--brasa) }
+.cursor.is-rotulo .cursor__anel { width: 76px; height: 76px; margin: -38px 0 0 -38px; background: var(--brasa); box-shadow: none }
+.cursor.is-rotulo .cursor__rotulo { opacity: 1 }
+.cursor.is-calor .cursor__anel { width: 120px; height: 120px; margin: -60px 0 0 -60px; box-shadow: inset 0 0 0 1px rgba(255, 178, 74, 0.55); background: radial-gradient(circle, rgba(255, 178, 74, 0.12), transparent 70%) }
+.cursor.is-apertado .cursor__anel { scale: 0.8 }
+.cursor.is-oculto { opacity: 0 }
+
+/* ---------- progresso: cordão de solda ---------- */
+.cordao {
+  position: fixed; z-index: 40; right: calc(18px + env(safe-area-inset-right, 0px)); top: 50%; translate: 0 -50%;
+  display: flex; flex-direction: column; align-items: center; gap: 12px; pointer-events: none;
+  opacity: 0; transition: opacity 0.6s;
+}
+.is-rolou .cordao { opacity: 1 }
+.cordao__trilho { position: relative; width: 10px; height: 34vh; border-radius: 6px; background: rgba(168, 194, 222, 0.07) }
+.cordao__solda {
+  position: absolute; left: 0; top: 0; width: 100%; height: calc(var(--p, 0) * 100%); border-radius: 6px;
+  background: linear-gradient(to bottom, #56616d 0%, #7d8995 calc(100% - 90px), var(--revenido-azul) calc(100% - 64px), var(--revenido-roxo) calc(100% - 46px), var(--revenido-bronze) calc(100% - 28px), var(--brasa) calc(100% - 10px), var(--brasa-quente) 100%);
+  -webkit-mask: radial-gradient(ellipse 6px 4.5px at 50% 100%, #000 92%, transparent) 0 0 / 10px 7px repeat-y, linear-gradient(#000, #000) 50% 0 / 4px 100% no-repeat;
+  mask: radial-gradient(ellipse 6px 4.5px at 50% 100%, #000 92%, transparent) 0 0 / 10px 7px repeat-y, linear-gradient(#000, #000) 50% 0 / 4px 100% no-repeat;
+}
+.cordao__ponta {
+  position: absolute; left: 50%; top: calc(var(--p, 0) * 100%); width: 9px; height: 9px; margin: -5px 0 0 -4.5px; border-radius: 50%;
+  background: #fff6e0; box-shadow: 0 0 10px 3px rgba(255, 178, 74, 0.9), 0 0 26px 8px rgba(251, 120, 30, 0.45);
+  animation: tremer 0.12s steps(2) infinite;
+}
+@keyframes tremer { 50% { box-shadow: 0 0 7px 2px rgba(255, 178, 74, 0.8), 0 0 20px 6px rgba(251, 120, 30, 0.35) } }
+.cordao__num { font: 500 11px/1 var(--mono); color: var(--texto-2); letter-spacing: 0.08em; font-variant-numeric: tabular-nums }
+@media (max-width: 760px) { .cordao { display: none } }
+
+/* ---------- aviso (toast) ---------- */
+.aviso {
+  position: fixed; z-index: 96; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); translate: -50% 140%;
+  max-width: calc(100% - 32px); padding: 12px 18px; border-radius: var(--r-botao);
+  background: var(--vidro-forte); box-shadow: inset 0 0 0 1px var(--fio-forte), 0 20px 50px -20px #000;
+  backdrop-filter: var(--desfoque); -webkit-backdrop-filter: var(--desfoque);
+  font-size: var(--t-pequeno); opacity: 0; transition: translate 0.6s var(--mola), opacity 0.3s;
+}
+.aviso.is-visivel { translate: -50% 0; opacity: 1 }
+
+/* ---------- estados iniciais das entradas (só com o motor ativo) ---------- */
+html.com-movimento [data-surgir] { opacity: 0 }
+html.com-movimento [data-titulo] { visibility: hidden }
+html.com-movimento .linha-mascara { overflow: clip; padding-bottom: 0.08em; margin-bottom: -0.08em }
+
+@media (prefers-reduced-motion: reduce) {
+  .grao, .logo--fundido, .selo i, .cordao__ponta { animation: none }
+}

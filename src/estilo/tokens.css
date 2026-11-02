@@ -1,0 +1,69 @@
+/*
+ * Layout: palco escuro de oficina (o brilho do arco só aparece no escuro),
+ * coluna de 1240 px, tipografia expandida de chapa industrial, números em mono.
+ * Um tema só, de propósito: é o mundo da solda vista pela máscara.
+ */
+:root {
+  color-scheme: dark;
+
+  /* aço */
+  --aco-0: #07090c;
+  --aco-1: #0d1116;
+  --aco-2: #141a21;
+  --aco-3: #1d252e;
+  --fio: rgba(168, 194, 222, 0.12);
+  --fio-forte: rgba(168, 194, 222, 0.22);
+
+  /* texto */
+  --texto: #eef1f4;
+  --texto-2: #a3adb8;
+  --texto-3: #6b7682;
+
+  /* marca: laranja do logo e dourado da placa */
+  --brasa: #fb781e;
+  --brasa-quente: #ffb24a;
+  --brasa-escura: #c2410c;
+  --brasa-texto: #1a0a02;
+  --ouro: #c99f53;
+
+  /* luz do arco e cores de revenimento (as que aparecem em volta da solda) */
+  --arco: #a8d8ff;
+  --revenido-palha: #d9b46a;
+  --revenido-bronze: #a8632e;
+  --revenido-roxo: #6c4f9e;
+  --revenido-azul: #3f72d4;
+  --revenido: linear-gradient(90deg, var(--revenido-palha), var(--revenido-bronze) 30%, var(--revenido-roxo) 62%, var(--revenido-azul));
+
+  /* tipos */
+  --display: 'Archivo', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --ui: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* escala */
+  --t-mega: clamp(52px, 10.4vw, 176px);
+  --t-h2: clamp(38px, 5.8vw, 96px);
+  --t-h2-menor: clamp(32px, 4.2vw, 68px);
+  --t-h3: clamp(21px, 1.8vw, 28px);
+  --t-corpo: 17px;
+  --t-pequeno: 14px;
+  --t-mono: 12px;
+
+  /* espaço e forma */
+  --gutter: max(16px, min(5vw, 64px));
+  --largura: 1240px;
+  --r-pilula: 999px;
+  --r-cartao: 18px;
+  --r-botao: 12px;
+  --r-peca: 10px;
+
+  /* movimento */
+  --entrada: cubic-bezier(0.16, 1, 0.3, 1);
+  --saida: cubic-bezier(0.55, 0, 0.75, 0.2);
+  --mola: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --suave: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* vidro */
+  --vidro: rgba(20, 26, 33, 0.62);
+  --vidro-forte: rgba(14, 18, 24, 0.86);
+  --desfoque: blur(18px) saturate(1.25);
+}
