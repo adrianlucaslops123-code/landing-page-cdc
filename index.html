@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./src/estilo/fim.css" />
     <link rel="stylesheet" href="./src/estilo/aluno.css" />
     <link rel="stylesheet" href="./src/estilo/redes.css" />
+    <link rel="stylesheet" href="./src/estilo/aplicativo.css" />
     <style>
       html { background: #07090c; color-scheme: dark }
     </style>
@@ -617,6 +618,52 @@
         </div>
       </section>
 
+      <!-- 10 · APLICATIVO CDC (seção acrescentada: apresentação + prévia interativa de uma questão) -->
+      <section class="secao aplicativo" id="aplicativo" aria-labelledby="aplicativo-titulo">
+        <div class="secao__miolo aplicativo__grade">
+          <div class="aplicativo__apresentacao">
+            <p class="rotulo" data-surgir><span>10</span>Aplicativo</p>
+            <h2 class="titulo titulo--menor" id="aplicativo-titulo" data-titulo>Conheça o CDC Capacitação em Qualidade</h2>
+            <div class="aplicativo__texto">
+              <p class="secao__intro" data-surgir>O CDC Capacitação em Qualidade é uma plataforma desenvolvida para transformar a preparação de profissionais da área da qualidade e inspeção de soldagem.</p>
+              <p class="secao__intro" data-surgir>Reunimos questões técnicas, simulados, explicações e ferramentas de acompanhamento em um ambiente digital pensado para proporcionar uma experiência de estudo mais organizada, dinâmica e eficiente.</p>
+              <p class="secao__intro" data-surgir>Mais do que responder questões, queremos ajudar você a compreender o conteúdo e avançar na sua preparação profissional.</p>
+            </div>
+          </div>
+
+          <div class="janela-app" data-janela-app data-luz>
+            <div class="janela-app__barra" aria-hidden="true">
+              <span class="janela-app__marca"><i class="logo"></i></span>
+              <span class="janela-app__caminho">Questões<b>›</b>Inspeção de soldagem</span>
+              <span class="janela-app__estado"><i></i><span>Modo estudo</span></span>
+            </div>
+            <div class="questao" data-questao>
+              <p class="questao__modulo"><i aria-hidden="true"></i>MÓDULO: INSPEÇÃO DE SOLDAGEM</p>
+              <div class="questao__progresso" aria-hidden="true"><span>Questão demonstrativa</span><span>Inspeção visual</span></div>
+              <div class="questao__trilho" aria-hidden="true"><i></i></div>
+              <h3 class="questao__enunciado" id="questao-enunciado">Durante a inspeção visual de uma junta soldada, qual das seguintes descontinuidades corresponde a uma abertura na superfície do metal de solda ou do metal de base?</h3>
+              <ol class="questao__opcoes" aria-labelledby="questao-enunciado">
+                <li><button class="opcao" type="button" data-letra="A" aria-pressed="false"><span class="opcao__letra">A<span class="sr">)</span></span><span class="opcao__texto">Inclusão de escória.</span><span class="opcao__sinal" aria-hidden="true"></span></button></li>
+                <li><button class="opcao" type="button" data-letra="B" aria-pressed="false"><span class="opcao__letra">B<span class="sr">)</span></span><span class="opcao__texto">Porosidade interna.</span><span class="opcao__sinal" aria-hidden="true"></span></button></li>
+                <li><button class="opcao" type="button" data-letra="C" aria-pressed="false"><span class="opcao__letra">C<span class="sr">)</span></span><span class="opcao__texto">Trinca.</span><span class="opcao__sinal" aria-hidden="true"></span></button></li>
+                <li><button class="opcao" type="button" data-letra="D" aria-pressed="false"><span class="opcao__letra">D<span class="sr">)</span></span><span class="opcao__texto">Falta de fusão interna.</span><span class="opcao__sinal" aria-hidden="true"></span></button></li>
+                <li><button class="opcao" type="button" data-letra="E" aria-pressed="false"><span class="opcao__letra">E<span class="sr">)</span></span><span class="opcao__texto">Inclusão metálica.</span><span class="opcao__sinal" aria-hidden="true"></span></button></li>
+              </ol>
+              <div class="questao__retorno" data-retorno role="status" aria-live="polite"></div>
+              <div class="questao__pe">
+                <span>Exemplo interativo</span>
+                <button class="questao__refazer" type="button" data-refazer hidden>Tentar novamente</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="aplicativo__acao" data-surgir>
+            <a class="botao botao--brasa botao--grande" href="https://cdc-capacita-o-em-qualidade.lovable.app/" target="_blank" rel="noopener" data-magnetico>Conhecer o aplicativo <span aria-hidden="true">↗</span></a>
+            <p class="aplicativo__credito">Aplicativo desenvolvido por Adrian Lucas Lopes Maximiano.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- 11 · CONTATO E PRÉ-INSCRIÇÃO -->
       <section class="contato" id="contato" aria-labelledby="contato-titulo">
         <div class="contato__palco" aria-hidden="true"></div>
@@ -684,6 +731,7 @@
         <p class="redes-linha" data-redes-linha aria-label="Redes sociais da CDC"></p>
       </div>
       <p class="rodape__fim">© 2026 CDC Capacitação em Qualidade. Todos os direitos reservados.</p>
+      <p class="rodape__credito">Site desenvolvido por Adrian Lucas Lopes Maximiano.</p>
     </footer>
 
     <a class="zap" href="https://wa.me/5521982570418?text=Ol%C3%A1%2C%20Rose!%20Vim%20pelo%20site%20da%20CDC." target="_blank" rel="noopener" aria-label="Falar com a Rose no WhatsApp" data-magnetico>
