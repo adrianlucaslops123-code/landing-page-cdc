@@ -21,6 +21,7 @@ import { iniciarInscricao, iniciarDuvidas, iniciarMenu, iniciarFecho, ajustarFec
 import { iniciarAreaDoAluno } from './aluno/portal.js'
 import { iniciarRedes } from './redes.js'
 import { iniciarAplicativo } from './cenas/aplicativo.js'
+import { montarVideos } from './aluno/videos.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -100,6 +101,7 @@ abrir({ tarefas: [document.fonts.ready, logoPronto], reduzido }).then(() => {
   ligarRolagem({ rolagem, som, aoAncora: () => menu?.fechar() })
   // área do aluno própria (biblioteca + leitor de PDF); no artefato não há download
   iniciarAreaDoAluno({ rolagem, som, reduzido, artefato: import.meta.env.MODE === 'artefato' })
+  montarVideos()
   iniciarRedes({ rolagem })
   iniciarAplicativo({ reduzido, som })
   brasas({ alvo: document.querySelector('.contato__palco'), reduzido })

@@ -94,6 +94,30 @@ export const MATERIAIS = [
 ]
 
 // Vídeos da área comum. Formato: { id, titulo, descricao, youtube: 'ID' } ou { arquivo: 'videos/x.mp4' }
-export const VIDEOS = []
+// (títulos originais do YouTube; "link" é o endereço enviado; "inicio" em segundos, quando o link tem &t=)
+export const VIDEOS = [
+  {
+    id: 'capitulo-1-introducao',
+    titulo: 'prova teorica n1 solda fbts Video aula Capitulo 1 introdução N1',
+    canal: 'Deiwson Ribeiro',
+    youtube: 'F6voYaovgi4',
+    link: 'https://www.youtube.com/watch?v=F6voYaovgi4',
+  },
+  {
+    id: 'capitulo-4-processos-e-cortes',
+    titulo: 'Video prova teorica n1 solda fbts aula Capitulo 4 processos e cortes N1',
+    canal: 'Deiwson Ribeiro',
+    youtube: '31SkkrD4Lcs',
+    inicio: 9,
+    link: 'https://www.youtube.com/watch?v=31SkkrD4Lcs&t=9s',
+  },
+  {
+    id: 'deformacoes',
+    titulo: 'Video deformações N1  prova teorica fbts ,inspetor N1 solda, snqc petrobras',
+    canal: 'Deiwson Ribeiro',
+    youtube: 'EgpWC61ftYs',
+    link: 'https://www.youtube.com/watch?v=EgpWC61ftYs',
+  },
+]
 
 export const KIWIFY_LOGIN = 'https://dashboard.kiwify.com.br/login'
